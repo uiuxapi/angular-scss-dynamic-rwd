@@ -1,0 +1,56 @@
+// _base.scss
+@import './mixins.scss';
+
+
+*,
+*::after, 
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // defines 1rem 
+  font-size: 62.5%;
+
+  // basic media-mixin
+  /* 
+    @include respond-phone {
+      // passing code-block to mixin
+      font-size: 50%;
+    }
+  */
+  
+  // dynaic media-mixin
+  @include respond(phone) {
+    font-size: 50%;
+  }
+
+  @include respond(tab-port) {
+    font-size: 60%;
+  }
+
+  @include respond(tab-land) {
+    font-size: 70%;
+  }
+
+
+  @include respond(big-desktop) {
+    font-size: 80%;
+  }
+
+
+}
+
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+  box-sizing: border-box;
+}
+
+
+.box { @include transform(rotate(30deg)); }
